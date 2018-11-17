@@ -9,7 +9,7 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class UsersService {
-  
+
   private url: string = environment.BACKEND_URL + "/users";
   private authUser: User = null;
 
@@ -24,13 +24,16 @@ export class UsersService {
         user.token = res.token;
         this.saveUser();
         this.user$.next(user);
+        this.authUser = user;
         return this.authUser;
       })
     );
   }
 
   public signUp(user: any): Observable<User> {
-    return this.httpClient.post(this.url, user).pipe(
+    console.log(user);
+    console.log(user.photoURL);
+    return this.httpClient.post(this.url + '/signup', user).pipe(
       map((res: any) => res.user),
       map(this.userFromRes)
     );
@@ -42,15 +45,15 @@ export class UsersService {
       displayName: res.displayName,
       email: res.email, // TODO: Backend should consider store emails
       password: res.password,
-      photoURL: res.photoURL,
-      roles: { subscriber: true },
+      photoURL: res.userImage,
+      roles: "Volunteer",
       uid: res._id,
       since: new Date().getTime()
     };
 
     if (!user.displayName)
       user.displayName = (res.firstName && res.lastName) ? res.firstName + " " + res.lastName : res.username;
-  
+
     return user;
   }
 
@@ -60,18 +63,19 @@ export class UsersService {
       'Authorization': "Bearer " + this.authUser.token
     });
     return { headers };
-  } 
+  }
 
   public isLoggedIn(): boolean {
     let user = localStorage.getItem("user");
     if(user)
       this.authUser = JSON.parse(user);
-    
+
     return this.authUser != null;
   }
 
   public logout() {
     this.authUser = null;
+    this.user$.next(this.authUser);
     localStorage.removeItem("user");
   }
 

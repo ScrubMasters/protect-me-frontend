@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  BACKEND_URL: "https://express-hackaton-template.herokuapp.com"
+  BACKEND_URL: "https://protect-me-backend.herokuapp.com"
 };
 
 /*
