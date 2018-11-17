@@ -11,6 +11,7 @@ import { UsersService } from '../shared/services/users.service';
 export class NavbarComponent implements OnInit {
 
   user: User;
+  dbUser: User;
   logged: boolean;
 
   constructor(public afService: AuthService,
@@ -18,10 +19,13 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit() {
     // TODO
-    this.afService.user$.subscribe( user => this.user = user );
-    this.userService.user$.subscribe( user => this.user = user);
+    //this.afService.user$.subscribe( user => this.user = user );
+    this.userService.user$.subscribe( user =>{
+      this.dbUser = user;
+      console.log(this.dbUser);
+    });
   }
-  
+
   getLogStatus(): boolean {
     // TODO
     return this.afService.haveUser();
