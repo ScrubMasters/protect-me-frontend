@@ -1,0 +1,29 @@
+.parallax {
+    /* The image used */
+    background-image: url("../../assets/bg.jpg");
+
+    /* Set a specific height */
+    height: 500px;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    padding-top: 10em;
+}
+
+.title, .description {
+    text-align: center;
+    margin: auto;
+}
+
+.title {
+    font-size: 5em;
+}
+
+.description {
+    margin-top: 1em;
+    width: 60%;
+}

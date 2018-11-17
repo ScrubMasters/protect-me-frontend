@@ -1,0 +1,40 @@
+.modal-dialog{
+    max-width: 800px;
+}
+.prefix {
+    position: absolute;
+    transition: color 0.2s;
+    top: 0.70rem;
+    font-size: 1.25rem;
+}
+.marged-right {
+    margin-right: 5px;
+}
+.btn-marged {
+    margin-top: 10px;
+    margin-right: 10px;
+    color: white
+}
+.btn-marged-right {
+    margin-right: 0px;
+}
+.left-content {
+    display: none
+}
+.right-content-style {
+    background-color: #4f4f4f;
+    border-left: solid 20px #009688;
+    border-radius: 0px 3px 3px 0px;
+}
+.brand {
+    width: 60%;
+    margin-left: 50px;
+}
+@media (max-width: 767px) {
+    .right-content {
+        display: none
+    }
+    .left-content {
+        display: block
+    }
+}

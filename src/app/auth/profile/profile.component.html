@@ -1,0 +1,12 @@
+<div class="dropdown" *ngIf="user" mdbDropdown>
+    <a mdbDropdownToggle type="button" color="primary" class="dropdown-toggle waves-light no-marged p-2" mdbWavesEffect>
+        <span class="helloer">Hi {{user.displayName}}</span>
+        <img class="profile-img" [src]="user.photoURL" alt="profile-pic">
+    </a>
+
+    <div class="dropdown-menu">
+        <a class="dropdown-item" href="#"><i class="fas fa-user"></i>Profile</a>
+        <a class="dropdown-item" href="#"><i class="fas fa-lightbulb"></i>Dark Theme</a>
+        <a class="dropdown-item" type="button" color="primary" (click)="logout()" mdbWavesEffect><i class="fas fa-sign-out-alt"></i>Log out</a>
+    </div>
+</div>

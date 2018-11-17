@@ -1,0 +1,17 @@
+.prefix {
+    position: absolute;
+    transition: color 0.2s;
+    top: 0.70rem;
+    font-size: 1.25rem;
+}
+.marged-right {
+    margin-right: 5px;
+}
+@media (max-width: 767px) {
+    .right-content {
+        display: none
+    }
+    .left-content {
+        display: block
+    }
+}

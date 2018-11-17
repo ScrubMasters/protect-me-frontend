@@ -1,0 +1,83 @@
+<a type="button" color="primary" class="nav-link waves-light" (click)="basicModal.show()" mdbWavesEffect>Sign up</a>
+
+<div mdbModal #basicModal="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="row">
+        <div class="col-md-8">
+          <div class="modal-header text-center">
+            <h4 class="modal-title w-100 font-weight-bold">Sign up</h4>
+            <button type="button" class="close pull-right left-content btn-marged-right" aria-label="Close" (click)="basicModal.hide()">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div [formGroup]="signUpForm" novalidate>
+            <div class="modal-body mx-3">
+              <div class="md-form mb-5">
+                <i class="fas fa-ghost fa-sm prefix grey-text"></i>
+                <input mdbInputDirective type="text" id="name" class="form-control form-control-sm" name="name"
+                  formControlName="name">
+                <label for="name" class="">Name</label>
+              </div>
+              <div class="md-form mb-5">
+                  <i class="fas fa-ghost fa-sm prefix grey-text"></i>
+                  <input mdbInputDirective type="text" id="last-name" class="form-control form-control-sm" name="last-name"
+                    formControlName="last-name">
+                  <label for="last-name" class="">Lastname</label>
+                </div>
+              <div class="md-form mb-5">
+                <i class="fas fa-ghost fa-sm prefix grey-text"></i>
+                <input mdbInputDirective type="text" id="form1" class="form-control form-control-sm" name="username"
+                  formControlName="username">
+                <label for="form1" class="">Username</label>
+              </div>
+              <div class="md-form mb-5">
+                <i class="fas fa-envelope prefix grey-text"></i>
+                <input mdbInputDirective type="email" id="email" class="form-control form-control-sm" name="email"
+                formControlName="email">
+                <label for="email" class="">Email</label>
+              </div>
+
+              <div class="md-form mb-5">
+                <i class="fas fa-lock prefix grey-text"></i>
+                <input mdbInputDirective type="password" id="password" class="form-control form-control-sm" name="password"
+                formControlName="password">
+                <label for="password" class="">Password</label>
+              </div>
+
+              <div class="md-form mb-4">
+                <i class="fas fa-lock prefix grey-text"></i>
+                <input mdbInputDirective type="password" id="rpassword" class="form-control form-control-sm" name="rpassword"
+                formControlName="rpassword">
+                <label for="rpassword" class="">Repeat password</label>
+              </div>
+            </div>
+            <div class="modal-footer d-flex justify-content-center">
+              <div class="d-flex flex-wrap justify-content-center">
+                <button class="btn btn-deep-orange" (click)="submitSignUp()">Sign up</button>
+                <span class="text-grey right-content" style="margin-top: 20px">or use</span>
+                <div class="d-flex flex-wrap justify-content-center">
+                  <button (click)="user.loginWithGoogle()" (click)="basicModal.hide()" mdbBtn type="button" color="indigo"
+                    class="waves-light" mdbWavesEffect><i class="fab fa-google marged-right"></i>Google</button>
+                  <button (click)="user.loginWithGithub()" (click)="basicModal.hide()" mdbBtn type="button" color="elegant"
+                    class="waves-light" mdbWavesEffect><i class="fab fa-github-alt marged-right"></i>GitHub</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 right-content right-content-style">
+          <button type="button" class="close pull-right btn-marged" aria-label="Close" (click)="basicModal.hide()">
+            <span aria-hidden="true">×</span>
+          </button>
+          <div class="d-flex justify-content-center">
+            <div style="margin-top: 150px;">
+              <img class="brand" src="https://mbtskoudsalg.com/images/transparent-png-image-4.png" alt="web_logo">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
