@@ -12,14 +12,7 @@ import { User } from '../shared/models/user';
 @Component({
   selector: 'app-message',
   templateUrl: './message.component.html',
-  styleUrls: ['./message.component.scss'],
-  animations: [
-    trigger('Fading', [
-      state('void', style({ opacity: 0 })),
-      state('*', style({ opacity: 1 })),
-      transition(':enter', animate('1000ms ease-out')),
-    ])
-]
+  styleUrls: ['./message.component.scss']
 })
 export class MessageComponent implements OnInit {
 
@@ -44,7 +37,12 @@ export class MessageComponent implements OnInit {
     interval(5000).subscribe(() => {
       this.messageService.messages$.subscribe(res => {
         this.messages = res;
-      })
+        this.messages = this.messages
+          .filter(a => a.to.username == this.userService.authUser.username || a.from.username == this.userService.authUser.username)
+          .sort((a, b) => {
+          return b.createdAt.getDate() - a.createdAt.getDate()
+        });
+      });
     });
   }
 
