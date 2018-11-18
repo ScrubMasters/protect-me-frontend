@@ -1,9 +1,18 @@
+import { MessageComponent } from './message/message.component';
+import { AlertsComponent } from './alerts/alerts.component';
+import { TeacherComponent } from './teacher/teacher.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
+import { DetailComponent } from './alerts/detail/detail.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent}
+  { path: '', component: HomeComponent},
+  { path: 'childrens', component: TeacherComponent },
+  { path: 'alerts', component: AlertsComponent },
+  { path: 'alerts/:id', component: DetailComponent },
+  { path: 'volunteers/chat/:id', component: MessageComponent },
+
 ];
 
 @NgModule({

@@ -5,12 +5,13 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { AngularFireModule } from 'angularfire2';
-import { AngularFireAuthModule } from "angularfire2/auth";
-import { AngularFireDatabaseModule } from "angularfire2/database";
-import { AngularFirestoreModule } from "angularfire2/firestore";
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
+import { AgmCoreModule } from '@agm/core';
 
 // Components
 import { AppComponent } from './app.component';
@@ -19,13 +20,18 @@ import { LoginComponent } from './auth/login/login.component';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { WellcomeComponent } from './application/wellcome/wellcome.component';
-import { ProfileComponent } from './auth/profile/profile.component'
+import { ProfileComponent } from './auth/profile/profile.component';
 
 // Firebase Configs
 import { firebaseConfig } from './firebase.config';
 
 // Services
 import { UsersService } from './shared/services/users.service';
+import { TeacherComponent } from './teacher/teacher.component';
+import { AlertsComponent } from './alerts/alerts.component';
+import { DetailComponent } from './alerts/detail/detail.component';
+import { MessageComponent } from './message/message.component';
+import { MapComponent } from './alerts/detail/map.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +42,11 @@ import { UsersService } from './shared/services/users.service';
     RegisterComponent,
     WellcomeComponent,
     ProfileComponent,
+    TeacherComponent,
+    AlertsComponent,
+    DetailComponent,
+    MessageComponent,
+    MapComponent
   ],
   imports: [
     // Angular
@@ -53,11 +64,14 @@ import { UsersService } from './shared/services/users.service';
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     AngularFirestoreModule,
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyDBVXjdqf6dk7i9ivXH-7zZHrLKWBwZNlE'
+    }),
   ],
   providers: [
     UsersService
   ],
-  bootstrap: [AppComponent,]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

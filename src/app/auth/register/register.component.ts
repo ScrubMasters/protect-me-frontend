@@ -44,29 +44,26 @@ export class RegisterComponent implements OnInit {
       });
       let user = {
         name: this.signUpForm.controls["name"].value,
+        username: this.signUpForm.controls["username"].value,
         lastname: this.signUpForm.controls["last-name"].value,
         password: this.signUpForm.controls["password"].value,
         email: this.signUpForm.controls["email"].value,
       };
-
       this.modal.hide();
-      // TODO
-      // this.usersService.signUp(user).subscribe(
-      //   () => {
-      //     console.log("Success");
-      //     toast.toastRef.close();
-      //     this.modal.hide();
-      //   },
-      //   err => {
-      //     console.log(err);
-      //     toast.toastRef.close();
-      //     this.toast.error(err, "", {
-      //       timeOut: 5000,
-      //       positionClass: 'toast-bottom-center'
-      //     });
-      //     this.modal.hide();
-      //   }
-      // );
+      this.usersService.signUp(user).subscribe(
+        (user_singed) => {
+          toast.toastRef.close();
+          this.modal.hide();
+        },
+        err => {
+          toast.toastRef.close();
+          this.toast.error(err, "", {
+            timeOut: 5000,
+            positionClass: 'toast-bottom-center'
+          });
+          this.modal.hide();
+        }
+      );
     }
   }
-} 
+}

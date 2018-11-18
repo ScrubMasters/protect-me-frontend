@@ -7,13 +7,7 @@ export interface User {
   displayName: string;
   username: string;
   photoURL: string;
-  roles: Roles;
+  roles: string;
   since: number;
   token?: string;
-}
-
-export class Roles {
-  subscriber?: boolean = false;
-  developer?: boolean = false;
-  admin?: boolean = false;
 }

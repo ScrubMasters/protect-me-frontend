@@ -1,0 +1,14 @@
+.toast {
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  background-color: rgb(255, 191, 53);
+  z-index: 4;
+  cursor: pointer;
+  height: 50px;
+  border-radius: 5px;
+}
+
+.toast-content {
+  margin: 10px;
+}
