@@ -15,7 +15,9 @@
             <p class="card-text">Contact: {{alert.createdBy.email}}</p>
             <p class="card-text">Aler Date: {{alert.date | date: 'dd-MM-yyyy'}}</p>
             <p class="card-text">Alert Hour: {{alert.date | date: 'hh:mm:ss a'}}</p>
-            <a [routerLink]="['/volunteers/chat/' , alert.id]" > Start Chat </a>
+            <div class="start-chat">
+            <a class="btn btn-info" [routerLink]="['/volunteers/chat/' , alert.id]" > Start Chat </a>
+            </div>
           </div>
         </div>
       </div>
