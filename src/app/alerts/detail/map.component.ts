@@ -1,24 +1,23 @@
+import { Alert } from './../../shared/models/alert';
 import { AlertsService } from './../../shared/services/alerts.service';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Alert } from 'src/app/shared/models/alert';
-
 
 @Component({
-  selector: 'app-detail',
+  selector: 'app-root',
   templateUrl: './detail.component.html',
-  styleUrls: ['./detail.component.scss']
+  styleUrls: ['./detail.component.scss'],
 })
-export class DetailComponent implements OnInit {
-
-  public lat: number = 0;
-  public lng: number = 0;
+export class MapComponent implements OnInit {
+  public title: string = 'My first AGM project';
+  public lat: number = 51.678418;
+  public lng: number = 7.809007;
 
   public alert: Alert;
-  public haveAlert: Boolean;
+  public haveAlert: Boolean = false;
 
   constructor(private route: ActivatedRoute,
-              public alertService: AlertsService) { }
+              private alertService: AlertsService) {}
 
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
@@ -26,11 +25,7 @@ export class DetailComponent implements OnInit {
       res => {
         this.alert = res
         this.haveAlert = true;
-        this.lat = this.alert.latitude;
-        this.lng = this.alert.longitude;
       }
-    );
-  }
+  );}
 
 }
-
