@@ -2,6 +2,7 @@ import { Alert } from './../../shared/models/alert';
 import { AlertsService } from './../../shared/services/alerts.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { interval } from 'rxjs/internal/observable/interval';
 
 @Component({
   selector: 'app-root',
@@ -20,12 +21,14 @@ export class MapComponent implements OnInit {
               private alertService: AlertsService) {}
 
   ngOnInit() {
+    interval(5000).subscribe(() => {
     const id = this.route.snapshot.paramMap.get('id');
     this.alertService.getAlert(id).subscribe(
       res => {
         this.alert = res
         this.haveAlert = true;
       }
-  );}
-
+    );
+  });
+  }
 }
