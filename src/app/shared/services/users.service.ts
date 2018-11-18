@@ -41,12 +41,16 @@ export class UsersService {
   }
 
   public userFromRes(res: any): User {
+    let photo: string = res.userImage.replace(/PNG/g, "png");
+    if(!photo.startsWith("http")) {
+      photo = environment.BACKEND_URL + "/" + photo;
+    }
     let user: User = {
       username: res.username,
       displayName: res.displayName,
       email: res.email, // TODO: Backend should consider store emails
       password: res.password,
-      photoURL: res.userImage,
+      photoURL: photo,
       roles: res.userRole || "Volunteer",
       uid: res._id,
       since: new Date().getTime()

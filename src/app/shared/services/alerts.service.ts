@@ -33,6 +33,10 @@ export class AlertsService {
   }
 
   private alertFromRes(res: any): Alert {
+    let photo: string = res.createdBy.userImage.replace(/PNG/g, "png");
+    if(!photo.startsWith("http")) {
+      photo = environment.BACKEND_URL + "/" + photo;
+    }
     let alert: Alert = {
       id: res._id,
       severity: res.severity, //low-medium-high
@@ -42,8 +46,8 @@ export class AlertsService {
         displayName: res.createdBy.displayName,
         email: res.createdBy.email, // TODO: Backend should consider store emails
         password: res.createdBy.password,
-        photoURL: environment.BACKEND_URL + '/' + res.createdBy.userImage.replace('PNG', 'png'),
-        roles: "Volunteer",
+        photoURL: photo,
+        roles: res.createdBy.userRole || "Volunteer",
         uid: res.createdBy._id,
         since: new Date().getTime()
       },
