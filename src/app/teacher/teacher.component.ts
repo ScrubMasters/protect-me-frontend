@@ -1,11 +1,7 @@
 import { TeachersService } from './../shared/services/teachers.service';
 import { Component, OnInit } from '@angular/core';
 import { User } from '../shared/models/user';
-<<<<<<< HEAD
-import { interval } from 'rxjs';
-=======
 import { interval } from 'rxjs/internal/observable/interval';
->>>>>>> e99db5449d0ae69b7c290504f6f308c565748fd5
 
 @Component({
   selector: 'app-teacher',
@@ -27,10 +23,7 @@ export class TeacherComponent implements OnInit {
           this.childrens = childrens;
         }
       );
-<<<<<<< HEAD
-    });
-=======
     })
->>>>>>> e99db5449d0ae69b7c290504f6f308c565748fd5
   }
+
 }
