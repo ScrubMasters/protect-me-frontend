@@ -2,13 +2,12 @@ import { AlertsService } from './../shared/services/alerts.service';
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { MessageService } from '../shared/services/message.service';
-import { User } from '../shared/models/user';
 import { Alert } from '../shared/models/alert';
 import { trigger, state, transition, style, animate } from '@angular/animations';
 import { Message } from '../shared/models/message';
-import { map } from 'rxjs/operators';
 import { UsersService } from '../shared/services/users.service';
 import { interval } from 'rxjs/internal/observable/interval';
+import { User } from '../shared/models/user';
 
 @Component({
   selector: 'app-message',
@@ -25,6 +24,7 @@ import { interval } from 'rxjs/internal/observable/interval';
 export class MessageComponent implements OnInit {
 
   childrenId: string;
+  public children: User = undefined;
   public message: string;
   public messages: Message[] = []
 
@@ -35,8 +35,13 @@ export class MessageComponent implements OnInit {
               public userService: UsersService) { }
 
   ngOnInit() {
+    this.childrenId = this.route.snapshot.paramMap.get('id');
+    this.alertService.getAlert(this.childrenId).subscribe(
+      (res: Alert) => {
+        this.children = res.createdBy;
+      }
+    );
     interval(5000).subscribe(() => {
-      this.childrenId = this.route.snapshot.paramMap.get('id');
       this.messageService.messages$.subscribe(res => {
         this.messages = res;
       })
@@ -48,18 +53,11 @@ export class MessageComponent implements OnInit {
     // send message to subscribers via observable subject
     this.alertService.getAlert(this.childrenId).subscribe(
       (res: Alert) => {
+        this.children = res.createdBy;
+        console.log(this.children);
         this.messageService.sendMessage(res.createdBy, this.message);
       }
     );
   }
-
-  // getMessages() {
-  //   //this.messages =
-  //   this.alertService.getAlert(this.childrenId).subscribe(
-  //     (res: Alert) => {
-  //       this.messageService.getMessages(res.createdBy);
-  //     }
-  //   );
-  // }
 }
 
