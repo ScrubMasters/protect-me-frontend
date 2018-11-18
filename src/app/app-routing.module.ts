@@ -1,3 +1,4 @@
+import { MessageComponent } from './message/message.component';
 import { AlertsComponent } from './alerts/alerts.component';
 import { TeacherComponent } from './teacher/teacher.component';
 import { NgModule } from '@angular/core';
@@ -10,6 +11,8 @@ const routes: Routes = [
   { path: 'childrens', component: TeacherComponent },
   { path: 'alerts', component: AlertsComponent },
   { path: 'alerts/:id', component: DetailComponent },
+  { path: 'volunteers', component: MessageComponent },
+
 ];
 
 @NgModule({

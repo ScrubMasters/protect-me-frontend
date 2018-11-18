@@ -20,7 +20,7 @@ export class DetailComponent implements OnInit {
     const id = this.route.snapshot.paramMap.get('id');
     this.alertService.getAlert(id).subscribe(
       res => {
-        this.alert = res
+        this.alert = res;
         this.haveAlert = true;
       }
     );

@@ -17,7 +17,7 @@ export class TeachersService {
   constructor(private httpClient: HttpClient) { }
 
   public getChildren(): Observable<User[]> {
-    return this.httpClient.get(this.url + "/users").pipe(
+    return this.httpClient.get(this.url + '/users').pipe(
       map((res: any) => {
         console.log(res);
         return res;
@@ -30,7 +30,7 @@ export class TeachersService {
   }
 
   private userFromRes(res: any): User {
-    let user: User = {
+    const user: User = {
       username: res.username,
       displayName: res.displayName,
       email: res.email, // TODO: Backend should consider store emails

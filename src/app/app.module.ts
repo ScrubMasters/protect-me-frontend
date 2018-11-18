@@ -5,10 +5,10 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { AngularFireModule } from 'angularfire2';
-import { AngularFireAuthModule } from "angularfire2/auth";
-import { AngularFireDatabaseModule } from "angularfire2/database";
-import { AngularFirestoreModule } from "angularfire2/firestore";
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 
@@ -19,7 +19,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { WellcomeComponent } from './application/wellcome/wellcome.component';
-import { ProfileComponent } from './auth/profile/profile.component'
+import { ProfileComponent } from './auth/profile/profile.component';
 
 // Firebase Configs
 import { firebaseConfig } from './firebase.config';
@@ -29,6 +29,7 @@ import { UsersService } from './shared/services/users.service';
 import { TeacherComponent } from './teacher/teacher.component';
 import { AlertsComponent } from './alerts/alerts.component';
 import { DetailComponent } from './alerts/detail/detail.component';
+import { MessageComponent } from './message/message.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { DetailComponent } from './alerts/detail/detail.component';
     ProfileComponent,
     TeacherComponent,
     AlertsComponent,
-    DetailComponent
+    DetailComponent,
+    MessageComponent
   ],
   imports: [
     // Angular
@@ -64,6 +66,6 @@ import { DetailComponent } from './alerts/detail/detail.component';
   providers: [
     UsersService
   ],
-  bootstrap: [AppComponent,]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

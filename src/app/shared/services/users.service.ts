@@ -12,7 +12,7 @@ import { map } from 'rxjs/operators';
 export class UsersService {
 
   private url: string = environment.BACKEND_URL + "/users";
-  private authUser: User = null;
+  public authUser: User = null;
 
   public user$: BehaviorSubject<User> = new BehaviorSubject<User>(null);
 
