@@ -15,8 +15,7 @@ export class TeacherComponent implements OnInit {
   constructor(public teachService: TeachersService) { }
 
   ngOnInit() {
-    console.log('Getting students...');
-    interval(5000).subscribe(() => {
+    interval(3000).subscribe(() => {
       this.teachService.getChildren().subscribe(
         childrens => {
           console.log(childrens);

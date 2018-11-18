@@ -21,7 +21,7 @@ export class MapComponent implements OnInit {
               private alertService: AlertsService) {}
 
   ngOnInit() {
-    interval(5000).subscribe(() => {
+    interval(3000).subscribe(() => {
     const id = this.route.snapshot.paramMap.get('id');
     this.alertService.getAlert(id).subscribe(
       res => {

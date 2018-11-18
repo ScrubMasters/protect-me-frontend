@@ -34,13 +34,14 @@ export class MessageComponent implements OnInit {
         this.children = res.createdBy;
       }
     );
-    interval(5000).subscribe(() => {
+    interval(3000).subscribe(() => {
       this.messageService.messages$.subscribe(res => {
         this.messages = res;
         this.messages = this.messages
-          .filter(a => a.to.username == this.userService.authUser.username || a.from.username == this.userService.authUser.username)
+          .filter(a => a.to.username == this.userService.authUser.username && a.from.username == this.children.username || (a.from.username == this.userService.authUser.username && a.to.username == this.children.username))
           .sort((a, b) => {
-          return b.createdAt.getDate() - a.createdAt.getDate()
+
+        return b.createdAt < a.createdAt ? 1 : -1;
         });
       });
     });

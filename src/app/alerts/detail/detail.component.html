@@ -2,7 +2,7 @@
   <h2 style="display: inline;">Alert from: <h2 style="display: inline" *ngIf="haveAlert" >{{alert.createdBy.username}}</h2></h2>
 </div>
 <div class="row container">
-  <div class="col-12 card-padding">
+  <div class="col-6 card-padding">
     <div class="card dashboard container">
       <!-- Card image -->
       <div class="row">
@@ -12,6 +12,7 @@
             <div class="">
             <!-- Title -->
             <h4 style="margin-left: 20%" class="card-title">Alert infromation:</h4>
+            <p class="card-text">Username: {{alert.createdBy.username}}</p>
             <p class="card-text">Contact: {{alert.createdBy.email}}</p>
             <p class="card-text">Aler Date: {{alert.date | date: 'dd-MM-yyyy'}}</p>
             <p class="card-text">Alert Hour: {{alert.date | date: 'hh:mm:ss a'}}</p>
@@ -23,22 +24,8 @@
       </div>
     </div>
   </div>
-  <div class="col-12 card-padding">
-    <div class="card dashboard container">
-      <!-- Card image -->
-      <div class="row">
 
-        <div *ngIf="haveAlert"  class="txt-container">
-            <!-- Card content -->
-            <div class="">
-            <!-- Title -->
-            <h4 style="margin-left: 50%" class="card-title">Audio:</h4>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-12 card-padding">
+  <div class="col-6 ">
     <div class="card location dashboard container">
       <!-- Card image -->
       <div class="row">

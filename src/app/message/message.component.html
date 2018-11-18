@@ -11,7 +11,7 @@
     </div>
   </div>
   <div class="card-body content" >
-    <div class="card-body" *ngFor="let m of messages" @Fading>
+    <div class="card-body" *ngFor="let m of messages">
       <div class="card" [ngClass]="{'bot': m.from.username !== userService.authUser.username, 'own': m.from.username === userService.authUser.username}">
         <p class="name text-muted"><i class="fas fa-comment-alt"></i> {{ m.from.username }}</p>
         <p class="msg"> {{ m.message }}</p>
