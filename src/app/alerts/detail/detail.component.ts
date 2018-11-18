@@ -3,12 +3,16 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Alert } from 'src/app/shared/models/alert';
 
+
 @Component({
   selector: 'app-detail',
   templateUrl: './detail.component.html',
   styleUrls: ['./detail.component.scss']
 })
 export class DetailComponent implements OnInit {
+
+  public lat: number = 0;
+  public lng: number = 0;
 
   public alert: Alert;
   public haveAlert: Boolean;
@@ -22,8 +26,11 @@ export class DetailComponent implements OnInit {
       res => {
         this.alert = res;
         this.haveAlert = true;
+        this.lat = this.alert.latitude;
+        this.lng = this.alert.longitude;
       }
     );
   }
 
 }
+

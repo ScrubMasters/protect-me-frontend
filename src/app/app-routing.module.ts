@@ -11,7 +11,7 @@ const routes: Routes = [
   { path: 'childrens', component: TeacherComponent },
   { path: 'alerts', component: AlertsComponent },
   { path: 'alerts/:id', component: DetailComponent },
-  { path: 'volunteers', component: MessageComponent },
+  { path: 'volunteers/chat/:id', component: MessageComponent },
 
 ];
 

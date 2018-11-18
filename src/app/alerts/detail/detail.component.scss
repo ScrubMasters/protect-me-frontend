@@ -6,11 +6,17 @@
 
 .txt-container {
   padding-top: 30px;
-  margin-left: 5%
 }
 
 .card-title {
+  width: 100%;
   margin-bottom: 30px;
+  margin-left: 5%
+}
+
+.card-text {
+  width: 100%;
+  margin-left: 25% !important
 }
 
 .user-pic {
@@ -62,4 +68,22 @@
 .placed {
   position: absolute;
   width: 100%;
+}
+
+.card-text {
+  margin-left: 15%;
+  width: 100%;
+}
+
+.location {
+  height: 400px;
+}
+
+agm-map {
+  margin: auto;
+  margin-left: 12%;
+  height: 250px;
+  width: 400px;
+  min-width: 300px;
+  border-radius: 2px;
 }

@@ -1,0 +1,68 @@
+.chat-container {
+  width: 40%;
+  margin:auto;
+  font-size: 1em;
+}
+
+img {
+  display:block;
+  margin:auto;
+}
+
+.card-header {
+  background-color: #474747;
+  color:white;
+  text-align: left;
+}
+
+.card-body {
+  padding: .5em
+}
+
+.content {
+  height: 20em;
+  max-height: 20em;
+  overflow-y: scroll;
+}
+
+.description {
+  font-size: .9em;
+  padding: 0;
+  color: #d1d1d1;
+}
+
+
+.card {
+  width: 80%;
+  padding: .5em;
+  margin-bottom: 1em;
+}
+
+.msg {
+  font-size: .9em;
+  text-align: left;
+  margin: 5px;
+}
+
+.hour {
+  font-size: 10px;
+  text-align: right;
+  padding: 0;
+  margin: 0;
+}
+
+.name {
+  font-size: 12px;
+  text-align: left;
+  padding: 0;
+  margin: 0;
+}
+
+.bot {
+  background-color: lightgray;
+}
+
+.own {
+  background-color: lightgreen;
+  float: right;
+}

@@ -11,6 +11,7 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
+import { AgmCoreModule } from '@agm/core';
 
 // Components
 import { AppComponent } from './app.component';
@@ -30,6 +31,7 @@ import { TeacherComponent } from './teacher/teacher.component';
 import { AlertsComponent } from './alerts/alerts.component';
 import { DetailComponent } from './alerts/detail/detail.component';
 import { MessageComponent } from './message/message.component';
+import { MapComponent } from './alerts/detail/map.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,8 @@ import { MessageComponent } from './message/message.component';
     TeacherComponent,
     AlertsComponent,
     DetailComponent,
-    MessageComponent
+    MessageComponent,
+    MapComponent
   ],
   imports: [
     // Angular
@@ -61,7 +64,10 @@ import { MessageComponent } from './message/message.component';
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     AngularFirestoreModule,
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyDBVXjdqf6dk7i9ivXH-7zZHrLKWBwZNlE'
+    }),
   ],
   providers: [
     UsersService

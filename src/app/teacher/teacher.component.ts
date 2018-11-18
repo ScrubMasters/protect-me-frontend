@@ -15,12 +15,14 @@ export class TeacherComponent implements OnInit {
 
   ngOnInit() {
     console.log('Getting students...');
-    this.teachService.getChildren().subscribe(
-      childrens => {
-        console.log(childrens);
-        this.childrens = childrens;
-      }
-    );
+    interval(5000).subscribe(() => {
+      this.teachService.getChildren().subscribe(
+        childrens => {
+          console.log(childrens);
+          this.childrens = childrens;
+        }
+      );
+    }
   }
 
 }
