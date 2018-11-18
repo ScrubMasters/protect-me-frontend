@@ -19,7 +19,6 @@ export class TeachersService {
   public getChildren(): Observable<User[]> {
     return this.httpClient.get(this.url + '/users').pipe(
       map((res: any) => {
-        console.log(res);
         return res;
       }),
       map((res: any) =>

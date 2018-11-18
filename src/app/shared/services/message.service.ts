@@ -51,33 +51,6 @@ export class MessageService {
     this.afStore.collection('messages').ref
   }
 
-  // public getMessages(children: User) {
-  //   var myMsgs: Message[] = [];
-  //   var theirMsgs: Message[] = [];
-
-  //   console.log('Getting msgs...')
-  //   var messagesCollection = this.afStore.collection('messages').ref;
-  //   console.log(messagesCollection);
-  //   var allMessages = messagesCollection.get()
-  //     .then(snapshot => {
-  //       snapshot.forEach(doc => {
-  //         var message = doc.data();
-  //         if (doc.data().from.username == this.users.authUser.username) {
-  //           console.log("MESSAGE_FOUND");
-  //           myMsgs.push(this.messageFactory(message));
-  //         } else if (doc.data().to.username == children.username) {
-  //           console.log("MESSAGE_FOUND");
-  //           theirMsgs.push(this.messageFactory(message));
-  //         }
-  //       });
-  //     })
-  //     .catch(err => {
-  //       console.error('Error getting documents', err)
-  //     });
-  //   this.myMessages.next(myMsgs)
-  //   this.theirMessage.next(theirMsgs)
-  // }
-
   messageFactory(any: any) {
     var factory_message: Message = {
       from: any.from,

@@ -36,13 +36,12 @@ export class MessageComponent implements OnInit {
 
   ngOnInit() {
     interval(5000).subscribe(() => {
-    this.childrenId = this.route.snapshot.paramMap.get('id');
-    this.messageService.messages$.subscribe(res => {
-      this.messages = res;
-      console.log(res)
+      this.childrenId = this.route.snapshot.paramMap.get('id');
+      this.messageService.messages$.subscribe(res => {
+        this.messages = res;
+      })
     });
-  })
-}
+  }
 
   sendMessage(): void {
     console.log('Sending: ' + this.message + '...');

@@ -88,7 +88,6 @@ export class AuthService {
         data.password = doc.data().password;
         console.log('LOGGING EXISTING USER');
         // Login with user service too
-        console.log(data)
         this.usersService.login(data.username, data.password).subscribe();
         return false;
       }
