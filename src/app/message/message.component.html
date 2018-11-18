@@ -4,9 +4,9 @@
       <div class="col-3">
           <img width="70" src="assets/bot.png" alt="">
       </div>
-      <div class="col-9">
-          <h3>  Clank</h3>
-          <div class="description text-muted">The intelligent healthcare assistant</div>
+      <div class="mid col-9">
+          <h3>Protect.me</h3>
+          <div *ngIf="children != undefined"  class="description">Chatting with: {{children.username}}</div>
       </div>
     </div>
   </div>
