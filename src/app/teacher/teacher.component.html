@@ -1,0 +1,29 @@
+<div class="heading">
+  <h2>Students:</h2>
+</div>
+<div class="row container">
+  <div *ngFor="let children of childrens" class="col-lg-4 col-md-6 col-sm-6 card-padding">
+      <div class="card dashboard container">
+          <!-- Card image -->
+          <div class="row">
+            <div class="img-container d-flex justify-content-center col-12">
+                <img src="{{children.photoURL}}" alt="student_pic" class="user-pic">
+            </div>
+
+            <div class="txt-container d-flex justify-content-center">
+                <!-- Card content -->
+                <div class="">
+                <!-- Title -->
+                <h4 class="card-title"><a>{{children.displayName}}</a></h4>
+                <!-- Text -->
+                <p class="card-text">{{children.email}}</p>
+                <!-- Button -->
+              </div>
+            </div>
+          </div>
+        </div>
+  </div>
+  <div *ngIf="childrens.length == 0" class="error-content">
+    <span>No students registered on app.</span>
+  </div>
+</div>

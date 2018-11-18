@@ -22,8 +22,8 @@ export class NavbarComponent implements OnInit {
     //this.afService.user$.subscribe( user => this.user = user );
     this.userService.user$.subscribe( user =>{
       this.dbUser = user;
-      console.log(this.dbUser);
     });
+    this.userService.isLoggedIn();
   }
 
   getLogStatus(): boolean {

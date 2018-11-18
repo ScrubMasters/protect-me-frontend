@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, BehaviorSubject } from 'rxjs';
@@ -15,31 +16,33 @@ export class UsersService {
 
   public user$: BehaviorSubject<User> = new BehaviorSubject<User>(null);
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient,
+              private router: Router) { }
 
   public login(username: string, password: string): Observable<User> {
     return this.httpClient.post(this.url + "/login", { username, password }).pipe(
       map((res: any) => {
         let user = this.userFromRes(res.user);
         user.token = res.token;
-        this.saveUser();
         this.user$.next(user);
         this.authUser = user;
+        this.saveUser();
+        // volunteers this.router.navigate(['/childrens']);
         return this.authUser;
       })
     );
   }
 
   public signUp(user: any): Observable<User> {
-    console.log(user);
-    console.log(user.photoURL);
     return this.httpClient.post(this.url + '/signup', user).pipe(
       map((res: any) => res.user),
       map(this.userFromRes)
     );
   }
 
-  private userFromRes(res: any): User {
+  public userFromRes(res: any): User {
+    console.log('USR');
+    console.log(res);
     let user: User = {
       username: res.username,
       displayName: res.displayName,
@@ -57,18 +60,19 @@ export class UsersService {
     return user;
   }
 
-  private getAuthHeaders() {
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': "Bearer " + this.authUser.token
-    });
-    return { headers };
+  public getAuthHeaders() {
+    const httpOptions = {
+      headers: new HttpHeaders().set("Authorization", "Bearer " + this.authUser.token)
+    };
+    return httpOptions;
   }
 
   public isLoggedIn(): boolean {
     let user = localStorage.getItem("user");
-    if(user)
+    if (user) {
       this.authUser = JSON.parse(user);
+      this.user$.next(this.authUser);
+    }
 
     return this.authUser != null;
   }
@@ -77,6 +81,7 @@ export class UsersService {
     this.authUser = null;
     this.user$.next(this.authUser);
     localStorage.removeItem("user");
+    this.router.navigate(['/']);
   }
 
   private saveUser() {

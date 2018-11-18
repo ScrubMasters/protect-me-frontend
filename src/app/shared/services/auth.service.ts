@@ -77,10 +77,7 @@ export class AuthService {
         this.usersService.signUp(data).subscribe(
           res => {
             userRef.set(Object.assign({}, data));
-            this.usersService.login(data.username, data.password).subscribe(
-              res => console.log(res),
-              err => console.error(err)
-            );
+            this.usersService.login(data.username, data.password).subscribe();
           },
           err => console.error(err)
         );
@@ -92,10 +89,7 @@ export class AuthService {
         console.log('LOGGING EXISTING USER');
         // Login with user service too
         console.log(data)
-        this.usersService.login(data.username, data.password).subscribe(
-          res => console.log(res),
-          err => console.error(err)
-        );
+        this.usersService.login(data.username, data.password).subscribe();
         return false;
       }
     });

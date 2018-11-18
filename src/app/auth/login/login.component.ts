@@ -4,6 +4,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { UsersService } from 'src/app/shared/services/users.service';
 import { ToastrService } from 'ngx-toastr';
 import { Observable, BehaviorSubject } from 'rxjs';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -40,7 +41,6 @@ export class LoginComponent implements OnInit {
       this.userService.login(this.loginForm.controls["username"].value, this.loginForm.controls["password"].value)
         .subscribe(
           res => {
-            console.log(res);
             this.modal.hide();
             toast.toastRef.close();
           } ,
@@ -54,13 +54,10 @@ export class LoginComponent implements OnInit {
 
   public authWithGoogle() {
     this.userExists = this.auth.loginWithGoogle()
-    console.log("I've got " + this.userExists);
     this.userExists.subscribe( (value) => {
-      console.log("Subscribbed to User email" + value)
 
       if (value === true) {
         this.showToast = true;
-        console.log("Content is true!");
       } else {
         this.showToast = false;
       }

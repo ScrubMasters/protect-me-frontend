@@ -26,6 +26,9 @@ import { firebaseConfig } from './firebase.config';
 
 // Services
 import { UsersService } from './shared/services/users.service';
+import { TeacherComponent } from './teacher/teacher.component';
+import { AlertsComponent } from './alerts/alerts.component';
+import { DetailComponent } from './alerts/detail/detail.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +39,9 @@ import { UsersService } from './shared/services/users.service';
     RegisterComponent,
     WellcomeComponent,
     ProfileComponent,
+    TeacherComponent,
+    AlertsComponent,
+    DetailComponent
   ],
   imports: [
     // Angular

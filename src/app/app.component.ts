@@ -14,10 +14,8 @@ export class AppComponent {
 
   constructor(public auth: AuthService) {
     this.auth.existentUser.subscribe( (value) => {
-      console.log("Subscribbed to User email" + value)
       if (value === true) {
         this.showToast = true;
-        console.log("Content is true!");
       } else {
         this.showToast = false;
       }

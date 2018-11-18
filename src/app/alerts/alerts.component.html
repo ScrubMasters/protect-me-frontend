@@ -1,0 +1,34 @@
+<div class="heading">
+    <h2>Alerts:</h2>
+  </div>
+  <div class="row container">
+    <div *ngFor="let alert of alerts" class="col-lg-4 col-md-6 col-sm-6 card-padding">
+        <div class="card dashboard container" (click)="router.navigate(['/alerts', alert.id])" >
+            <!-- Card image -->
+            <div class="row">
+              <div [ngClass]="{ 'low': alert.severity == 'LOW',
+                                'medium': alert.severity == 'MEDIUM',
+                                'high': alert.severity == 'HIGH'}" class="img-container d-flex justify-content-center col-12">
+              </div>
+              <div class="placed d-flex justify-content-end">
+                <img class="user-pic" src="{{alert.createdBy.photoURL}}" alt="user-pic">
+              </div>
+              <div class="txt-container d-flex justify-content-center">
+                  <!-- Card content -->
+                  <div class="">
+                  <!-- Title -->
+                  <h4 class="card-title"><a>{{alert.createdBy.username}}</a></h4>
+                  <!-- Text -->
+                  <p class="card-text">Severity: {{alert.severity}}</p>
+                  <p class="card-text">Date: {{alert.date | date: 'dd-MM-yyyy'}}</p>
+                  <p class="card-text">Hour: {{alert.date | date: 'hh:mm:ss a'}}</p>
+
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+    <div *ngIf="alerts.length == 0" class="error-content">
+      <span>No alerts registered on app.</span>
+    </div>
+  </div>

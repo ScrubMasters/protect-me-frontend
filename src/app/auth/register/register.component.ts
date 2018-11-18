@@ -52,12 +52,10 @@ export class RegisterComponent implements OnInit {
       this.modal.hide();
       this.usersService.signUp(user).subscribe(
         (user_singed) => {
-          console.log(user_singed);
           toast.toastRef.close();
           this.modal.hide();
         },
         err => {
-          console.log(err);
           toast.toastRef.close();
           this.toast.error(err, "", {
             timeOut: 5000,
