@@ -37,7 +37,6 @@ export class MessageComponent implements OnInit {
     this.childrenId = this.route.snapshot.paramMap.get('id');
     this.messageService.messages$.subscribe(res => {
       this.messages = res;
-      console.log(res)
     })
   }
 

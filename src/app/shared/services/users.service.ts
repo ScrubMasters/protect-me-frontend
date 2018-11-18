@@ -41,15 +41,13 @@ export class UsersService {
   }
 
   public userFromRes(res: any): User {
-    console.log('USR');
-    console.log(res);
     let user: User = {
       username: res.username,
       displayName: res.displayName,
       email: res.email, // TODO: Backend should consider store emails
       password: res.password,
       photoURL: res.userImage,
-      roles: "Volunteer",
+      roles: res.userRole || "Volunteer",
       uid: res._id,
       since: new Date().getTime()
     };

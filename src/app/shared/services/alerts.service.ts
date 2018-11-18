@@ -33,7 +33,6 @@ export class AlertsService {
   }
 
   private alertFromRes(res: any): Alert {
-    console.log(res);
     let alert: Alert = {
       id: res._id,
       severity: res.severity, //low-medium-high
@@ -60,7 +59,6 @@ export class AlertsService {
 
     return this.httpClient.get(this.url + "/alerts/" + id, headers).pipe(
       map((res: any) => {
-        console.log(res)
           return this.alertFromRes(res.alert)
 
         }

@@ -15,7 +15,7 @@ export class NavbarComponent implements OnInit {
   logged: boolean;
 
   constructor(public afService: AuthService,
-                private userService: UsersService) { }
+                public userService: UsersService) { }
 
   ngOnInit() {
     // TODO
