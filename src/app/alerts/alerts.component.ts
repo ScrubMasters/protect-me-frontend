@@ -2,6 +2,7 @@ import { Router } from '@angular/router';
 import { AlertsService } from './../shared/services/alerts.service';
 import { Component, OnInit } from '@angular/core';
 import { Alert } from '../shared/models/alert';
+import { interval } from 'rxjs/internal/observable/interval';
 
 @Component({
   selector: 'app-alerts',
@@ -22,12 +23,13 @@ export class AlertsComponent implements OnInit {
               public router: Router) { }
 
   ngOnInit() {
+    interval(5000).subscribe(() => {
     this.alertService.getAlerts().subscribe(
       alerts => {
         this.alerts = alerts.sort((n1,n2) => this.severities[n2.severity] - this.severities[n1.severity]);
       });
+    });
   }
-
 
 }
 
